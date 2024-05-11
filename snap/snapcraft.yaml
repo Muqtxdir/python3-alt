@@ -1,0 +1,183 @@
+name: python3-alt
+base: core24
+version: 1.0.0
+summary: Python3 alternative snap packaging
+description: |
+  snap packaging for python3 versions from 3.8 to 3.12
+
+adopt-info: python3-alt
+grade: stable
+confinement: strict
+
+parts:
+  python-3-8:
+    plugin: autotools
+    source: https://www.python.org/ftp/python/3.8.19/Python-3.8.19.tar.xz
+    build-packages:
+      - ca-certificates
+      - gcc
+      - build-essential
+      - libbluetooth-dev
+      - libbz2-dev
+      - libc6-dev
+      - libexpat1-dev
+      - libffi-dev
+      - liblzma-dev
+      - libncursesw5-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - zlib1g-dev
+    autotools-configure-parameters:
+      - --enable-optimizations
+      - --enable-loadable-sqlite-extensions
+      - --enable-option-checking=fatal
+      - --with-lto
+      - --with-system-expat
+      - --without-ensurepip
+      - --prefix=/python3-8
+    override-prime: |
+      craftctl default 
+      rm -rf $CRAFT_PART_INSTALL/python3-8/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+      cp -R $CRAFT_PART_INSTALL/python3-8/* $CRAFT_PRIME/
+      rm -rf $CRAFT_PRIME/python3-8
+      
+  python-3-9:
+    plugin: autotools
+    source: https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tar.xz
+    build-packages:
+      - ca-certificates
+      - gcc
+      - build-essential
+      - libbluetooth-dev
+      - libbz2-dev
+      - libc6-dev
+      - libexpat1-dev
+      - libffi-dev
+      - liblzma-dev
+      - libncursesw5-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - zlib1g-dev
+    autotools-configure-parameters:
+      - --enable-optimizations
+      - --enable-loadable-sqlite-extensions
+      - --enable-option-checking=fatal
+      - --with-lto
+      - --with-system-expat
+      - --without-ensurepip
+      - --prefix=/python3-9
+    override-prime: |
+      craftctl default 
+      rm -rf $CRAFT_PART_INSTALL/python3-9/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+      cp -R $CRAFT_PART_INSTALL/python3-9/* $CRAFT_PRIME/
+      rm -rf $CRAFT_PRIME/python3-9
+
+  python-3-10:
+    plugin: autotools
+    source: https://www.python.org/ftp/python/3.10.14/Python-3.10.14.tar.xz
+    build-packages:
+      - ca-certificates
+      - gcc
+      - build-essential
+      - libbluetooth-dev
+      - libbz2-dev
+      - libc6-dev
+      - libexpat1-dev
+      - libffi-dev
+      - liblzma-dev
+      - libncursesw5-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - zlib1g-dev
+    autotools-configure-parameters:
+      - --enable-optimizations
+      - --enable-loadable-sqlite-extensions
+      - --enable-option-checking=fatal
+      - --with-lto
+      - --with-system-expat
+      - --without-ensurepip
+      - --prefix=/python3-10
+    override-prime: |
+      craftctl default 
+      rm -rf $CRAFT_PART_INSTALL/python3-10/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+      cp -R $CRAFT_PART_INSTALL/python3-10/* $CRAFT_PRIME/
+      rm -rf $CRAFT_PRIME/python3-10
+
+  python-3-11:
+    plugin: autotools
+    source: https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tar.xz
+    build-packages:
+      - ca-certificates
+      - gcc
+      - build-essential
+      - libbluetooth-dev
+      - libbz2-dev
+      - libc6-dev
+      - libexpat1-dev
+      - libffi-dev
+      - liblzma-dev
+      - libncursesw5-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - zlib1g-dev
+    autotools-configure-parameters:
+      - --enable-optimizations
+      - --enable-loadable-sqlite-extensions
+      - --enable-option-checking=fatal
+      - --with-lto
+      - --with-system-expat
+      - --without-ensurepip
+      - --prefix=/python3-11
+    override-prime: | 
+      craftctl default
+      rm -rf $CRAFT_PART_INSTALL/python3-11/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+      cp -R $CRAFT_PART_INSTALL/python3-11/* $CRAFT_PRIME/
+      rm -rf $CRAFT_PRIME/python3-11
+
+  python-3-12:
+    plugin: autotools
+    source: https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tar.xz
+    build-packages:
+      - ca-certificates
+      - gcc
+      - build-essential
+      - libbluetooth-dev
+      - libbz2-dev
+      - libc6-dev
+      - libexpat1-dev
+      - libffi-dev
+      - liblzma-dev
+      - libncursesw5-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - zlib1g-dev
+    autotools-configure-parameters:
+      - --enable-optimizations
+      - --enable-loadable-sqlite-extensions
+      - --enable-option-checking=fatal
+      - --with-lto
+      - --with-system-expat
+      - --without-ensurepip
+      - --prefix=/python3-12
+    override-prime: | 
+      craftctl default
+      rm -rf $CRAFT_PART_INSTALL/python3-12/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+      cp -R $CRAFT_PART_INSTALL/python3-12/* $CRAFT_PRIME/
+      rm -rf $CRAFT_PRIME/python3-12
+
+apps:
+  3-8:
+    command: bin/python3.8
+  3-9:
+    command: bin/python3.9
+  3-10:
+    command: bin/python3.10
+  3-11:
+    command: bin/python3.11
+  3-12:
+    command: bin/python3.12
