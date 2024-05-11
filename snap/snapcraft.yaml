@@ -10,6 +10,7 @@ grade: stable
 confinement: strict
 
 parts:
+
   python-3-8:
     plugin: autotools
     source: https://www.python.org/ftp/python/3.8.19/Python-3.8.19.tar.xz
@@ -28,24 +29,19 @@ parts:
       - libsqlite3-dev
       - libssl-dev
       - zlib1g-dev
-      - wget
     autotools-configure-parameters:
       - --enable-optimizations
       - --enable-loadable-sqlite-extensions
       - --enable-option-checking=fatal
       - --with-lto
       - --with-system-expat
-      - --without-ensurepip
       - --prefix=/python3-8
     override-prime: |
       craftctl default 
-      rm -rf $CRAFT_PART_INSTALL/python3-8/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+      rm -rf $CRAFT_PART_INSTALL/python3-8/{bin/2to3,bin/pip,bin/pip3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
       cp -R $CRAFT_PART_INSTALL/python3-8/* $CRAFT_PRIME/
       rm -rf $CRAFT_PRIME/python3-8
-      wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py
-      $CRAFT_PRIME/bin/python3.8 get-pip.py --disable-pip-version-check --no-cache-dir --no-compile pip setuptools
-      rm -rf $CRAFT_PRIME/{bin/pip3,bin/pip}
-      
+
   python-3-9:
     plugin: autotools
     source: https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tar.xz
@@ -64,23 +60,18 @@ parts:
       - libsqlite3-dev
       - libssl-dev
       - zlib1g-dev
-      - wget
     autotools-configure-parameters:
       - --enable-optimizations
       - --enable-loadable-sqlite-extensions
       - --enable-option-checking=fatal
       - --with-lto
       - --with-system-expat
-      - --without-ensurepip
       - --prefix=/python3-9
     override-prime: |
       craftctl default 
-      rm -rf $CRAFT_PART_INSTALL/python3-9/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+      rm -rf $CRAFT_PART_INSTALL/python3-9/{bin/2to3,bin/pip,bin/pip3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
       cp -R $CRAFT_PART_INSTALL/python3-9/* $CRAFT_PRIME/
       rm -rf $CRAFT_PRIME/python3-9
-      wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py
-      $CRAFT_PRIME/bin/python3.9 get-pip.py --disable-pip-version-check --no-cache-dir --no-compile pip setuptools
-      rm -rf $CRAFT_PRIME/{bin/pip3,bin/pip}
 
   python-3-10:
     plugin: autotools
@@ -100,23 +91,18 @@ parts:
       - libsqlite3-dev
       - libssl-dev
       - zlib1g-dev
-      - wget
     autotools-configure-parameters:
       - --enable-optimizations
       - --enable-loadable-sqlite-extensions
       - --enable-option-checking=fatal
       - --with-lto
       - --with-system-expat
-      - --without-ensurepip
       - --prefix=/python3-10
     override-prime: |
       craftctl default 
-      rm -rf $CRAFT_PART_INSTALL/python3-10/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+      rm -rf $CRAFT_PART_INSTALL/python3-10/{bin/2to3,bin/pip,bin/pip3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
       cp -R $CRAFT_PART_INSTALL/python3-10/* $CRAFT_PRIME/
       rm -rf $CRAFT_PRIME/python3-10
-      wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py
-      $CRAFT_PRIME/bin/python3.10 get-pip.py --disable-pip-version-check --no-cache-dir --no-compile pip setuptools
-      rm -rf $CRAFT_PRIME/{bin/pip3,bin/pip}
 
   python-3-11:
     plugin: autotools
@@ -136,24 +122,19 @@ parts:
       - libsqlite3-dev
       - libssl-dev
       - zlib1g-dev
-      - wget
     autotools-configure-parameters:
       - --enable-optimizations
       - --enable-loadable-sqlite-extensions
       - --enable-option-checking=fatal
       - --with-lto
       - --with-system-expat
-      - --without-ensurepip
       - --prefix=/python3-11
-    override-prime: | 
-      craftctl default
-      rm -rf $CRAFT_PART_INSTALL/python3-11/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+    override-prime: |
+      craftctl default 
+      rm -rf $CRAFT_PART_INSTALL/python3-11/{bin/2to3,bin/pip,bin/pip3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
       cp -R $CRAFT_PART_INSTALL/python3-11/* $CRAFT_PRIME/
       rm -rf $CRAFT_PRIME/python3-11
-      wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py
-      $CRAFT_PRIME/bin/python3.11 get-pip.py --disable-pip-version-check --no-cache-dir --no-compile pip setuptools
-      rm -rf $CRAFT_PRIME/{bin/pip3,bin/pip}
-
+  
   python-3-12:
     plugin: autotools
     source: https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tar.xz
@@ -172,23 +153,18 @@ parts:
       - libsqlite3-dev
       - libssl-dev
       - zlib1g-dev
-      - wget 
     autotools-configure-parameters:
       - --enable-optimizations
       - --enable-loadable-sqlite-extensions
       - --enable-option-checking=fatal
       - --with-lto
       - --with-system-expat
-      - --without-ensurepip
       - --prefix=/python3-12
-    override-prime: | 
-      craftctl default
-      rm -rf $CRAFT_PART_INSTALL/python3-12/{bin/2to3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
+    override-prime: |
+      craftctl default 
+      rm -rf $CRAFT_PART_INSTALL/python3-12/{bin/2to3,bin/pip,bin/pip3,bin/idle3,bin/pydoc3,bin/python3,bin/python3-config,lib/pkgconfig/python3-embed.pc,lib/pkconfig/python3.pc,share/man/man1/python3.1}
       cp -R $CRAFT_PART_INSTALL/python3-12/* $CRAFT_PRIME/
       rm -rf $CRAFT_PRIME/python3-12
-      wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py
-      $CRAFT_PRIME/bin/python3.11 get-pip.py --disable-pip-version-check --no-cache-dir --no-compile pip setuptools
-      rm -rf $CRAFT_PRIME/{bin/pip3,bin/pip}
 
 apps:
   3-8:
@@ -202,12 +178,12 @@ apps:
   3-12:
     command: bin/python3.12
   pip3-8:
-    command: bin/pip3.8
+    command: bin/python3.8 -m pip
   pip3-9:
-    command: bin/pip3.9
+    command: bin/python3.9 -m pip
   pip3-10:
-    command: bin/pip3.10
+    command: bin/python3.10 -m pip
   pip3-11:
-    command: bin/pip3.11
+    command: bin/python3.11 -m pip
   pip3-12:
-    command: bin/pip3.12
+    command: bin/python3.12 -m pip
