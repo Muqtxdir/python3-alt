@@ -169,21 +169,31 @@ parts:
 apps:
   3-8:
     command: bin/python3.8
+    plugs: [network, network-bind, home]
   3-9:
     command: bin/python3.9
+    plugs: [network, network-bind, home]
   3-10:
     command: bin/python3.10
+    plugs: [network, network-bind, home]
   3-11:
     command: bin/python3.11
+    plugs: [network, network-bind, home]
   3-12:
     command: bin/python3.12
+    plugs: [network, network-bind, home]
   pip3-8:
     command: bin/python3.8 -m pip
+    plugs: [network, network-bind, home]
   pip3-9:
     command: bin/python3.9 -m pip
+    plugs: [network, network-bind, home]
   pip3-10:
     command: bin/python3.10 -m pip
+    plugs: [network, network-bind, home]
   pip3-11:
     command: bin/python3.11 -m pip
+    plugs: [network, network-bind, home]
   pip3-12:
     command: bin/python3.12 -m pip
+    plugs: [network, network-bind, home]
